@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Trips Home-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController title="Trips Home" id="BYZ-38-t0r" customClass="ViewController" customModule="Trip_Planner" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" alpha="0.40000000000000002" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="landsacpe.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="r2o-Ly-kCG">
+                                <rect key="frame" x="-8" y="20" width="391" height="647"/>
+                                <animations/>
+                            </imageView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XY5-Ma-Qn4">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <animations/>
+                                <items>
+                                    <navigationItem title="Planned Trips" id="pfW-Ox-k3b">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="bWC-rb-bev">
+                                            <connections>
+                                                <segue destination="jyf-Pl-hqg" kind="show" id="4BO-3e-J8z"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nYG-Mp-k1i">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="trip" id="Pdl-a2-Sm3">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Pdl-a2-Sm3" id="gb3-ne-gqa">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <animations/>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                    </tableViewCell>
+                                </prototypes>
+                                <sections/>
+                            </tableView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="r2o-Ly-kCG" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="0r1-6w-k6V"/>
+                            <constraint firstItem="nYG-Mp-k1i" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="6PC-jq-zJu"/>
+                            <constraint firstItem="XY5-Ma-Qn4" firstAttribute="centerX" secondItem="r2o-Ly-kCG" secondAttribute="centerX" id="Ezf-nU-CL1"/>
+                            <constraint firstItem="nYG-Mp-k1i" firstAttribute="trailing" secondItem="XY5-Ma-Qn4" secondAttribute="trailing" id="MfM-UH-9Ko"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="r2o-Ly-kCG" secondAttribute="trailing" constant="-24" id="Pu1-xi-oTr"/>
+                            <constraint firstItem="XY5-Ma-Qn4" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="UxQ-O1-YwB"/>
+                            <constraint firstItem="XY5-Ma-Qn4" firstAttribute="top" secondItem="r2o-Ly-kCG" secondAttribute="top" id="e1g-a6-SUB"/>
+                            <constraint firstItem="nYG-Mp-k1i" firstAttribute="top" secondItem="XY5-Ma-Qn4" secondAttribute="bottom" id="hnP-eK-Lmx"/>
+                            <constraint firstItem="r2o-Ly-kCG" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-24" id="itm-we-8Sm"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="r2o-Ly-kCG" secondAttribute="bottom" id="m3p-aY-Wsi"/>
+                            <constraint firstItem="nYG-Mp-k1i" firstAttribute="leading" secondItem="XY5-Ma-Qn4" secondAttribute="leading" id="zEN-sg-jgY"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="244.5" y="349.5"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Y0U-EI-5kS">
+            <objects>
+                <viewController id="5hM-Vm-Owg" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="eBx-qi-4Lt"/>
+                        <viewControllerLayoutGuide type="bottom" id="5Ew-sj-cQo"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Nbh-iE-Qe9">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dtG-3C-1pi">
+                                <rect key="frame" x="54" y="263" width="266" height="141"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="266" id="ZOP-OC-ZUu"/>
+                                    <constraint firstAttribute="height" constant="141" id="maC-5L-YIm"/>
+                                </constraints>
+                                <connections>
+                                    <segue destination="Q51-v0-dw5" kind="embed" id="Khd-i6-c4E"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="dtG-3C-1pi" firstAttribute="top" secondItem="eBx-qi-4Lt" secondAttribute="bottom" constant="243" id="vwr-5B-fV3"/>
+                            <constraint firstItem="dtG-3C-1pi" firstAttribute="centerX" secondItem="Nbh-iE-Qe9" secondAttribute="centerX" id="xvR-RM-2KB"/>
+                            <constraint firstItem="dtG-3C-1pi" firstAttribute="centerY" secondItem="Nbh-iE-Qe9" secondAttribute="centerY" id="z0c-GV-1Zp"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OCh-3m-he1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="26.5" y="1092.5"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="U2Y-Z0-X1S">
+            <objects>
+                <viewController id="m5d-mE-JDJ" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="76d-Mz-3P7"/>
+                        <viewControllerLayoutGuide type="bottom" id="Abg-0s-AP8"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fbJ-24-h1T">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x52-Fd-OU1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="462.5" y="1092.5"/>
+        </scene>
+        <!--Add Trip-->
+        <scene sceneID="cKx-AJ-HAM">
+            <objects>
+                <viewController title="Add Trip" id="jyf-Pl-hqg" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nJq-CM-TOK"/>
+                        <viewControllerLayoutGuide type="bottom" id="A3R-G5-2HX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="V6x-qT-0pQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="car.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="nnv-2w-teT">
+                                <rect key="frame" x="-8" y="20" width="391" height="647"/>
+                                <animations/>
+                            </imageView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OVQ-60-3eQ">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <animations/>
+                                <items>
+                                    <navigationItem title="Add Trip" id="8yn-O7-7fs">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="m6m-5n-2th">
+                                            <connections>
+                                                <segue destination="BYZ-38-t0r" kind="show" id="bk0-ad-06v"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Add" id="cMn-o0-23w"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Give this Trip a name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jVt-4h-k9a">
+                                <rect key="frame" x="74" y="314" width="226" height="21"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="hEy-Mv-Lqw"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Contiki with Squad" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xfl-fe-ASP">
+                                <rect key="frame" x="74" y="343" width="226" height="30"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="OVQ-60-3eQ" firstAttribute="leading" secondItem="V6x-qT-0pQ" secondAttribute="leading" id="2mf-tr-W7y"/>
+                            <constraint firstAttribute="trailing" secondItem="OVQ-60-3eQ" secondAttribute="trailing" id="9FK-5a-aYp"/>
+                            <constraint firstItem="nnv-2w-teT" firstAttribute="bottom" secondItem="A3R-G5-2HX" secondAttribute="top" id="Csn-1W-TGa"/>
+                            <constraint firstItem="OVQ-60-3eQ" firstAttribute="top" secondItem="nJq-CM-TOK" secondAttribute="bottom" id="Dgb-Lb-wZj"/>
+                            <constraint firstItem="jVt-4h-k9a" firstAttribute="leading" secondItem="V6x-qT-0pQ" secondAttribute="leadingMargin" constant="58" id="GEb-Vq-aAK"/>
+                            <constraint firstItem="Xfl-fe-ASP" firstAttribute="centerX" secondItem="V6x-qT-0pQ" secondAttribute="centerX" id="JYr-re-OqQ"/>
+                            <constraint firstItem="nnv-2w-teT" firstAttribute="leading" secondItem="V6x-qT-0pQ" secondAttribute="leadingMargin" constant="-24" id="SNx-8o-NuD"/>
+                            <constraint firstItem="nnv-2w-teT" firstAttribute="centerX" secondItem="OVQ-60-3eQ" secondAttribute="centerX" id="bxS-Xm-QmL"/>
+                            <constraint firstItem="jVt-4h-k9a" firstAttribute="centerX" secondItem="V6x-qT-0pQ" secondAttribute="centerX" id="kJH-La-Yd3"/>
+                            <constraint firstItem="nnv-2w-teT" firstAttribute="top" secondItem="OVQ-60-3eQ" secondAttribute="top" id="lft-gl-Vt2"/>
+                            <constraint firstItem="Xfl-fe-ASP" firstAttribute="top" secondItem="jVt-4h-k9a" secondAttribute="bottom" constant="8" symbolic="YES" id="qye-fB-9hh"/>
+                            <constraint firstItem="jVt-4h-k9a" firstAttribute="top" secondItem="V6x-qT-0pQ" secondAttribute="top" constant="314" id="sZw-td-mnJ"/>
+                            <constraint firstItem="jVt-4h-k9a" firstAttribute="leading" secondItem="Xfl-fe-ASP" secondAttribute="leading" id="yes-xh-XMW"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="el4-9Z-DmQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="803.5" y="349.5"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="uYW-Iw-pDw">
+            <objects>
+                <viewController id="Q51-v0-dw5" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Fbq-mm-w3R">
+                        <rect key="frame" x="0.0" y="0.0" width="266" height="141"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="You haven't added any waypoints to your trip yet!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X7e-wh-ki8">
+                                <rect key="frame" x="0.0" y="25" width="266" height="48"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="16"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vTN-w5-KiA">
+                                <rect key="frame" x="78" y="81" width="110" height="30"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" name="CourierNewPS-BoldItalicMT" family="Courier New" pointSize="15"/>
+                                <state key="normal" title="Get Started!"/>
+                            </button>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0x5-zs-Ohn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-366" y="1401.5"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="car.jpg" width="5760" height="3840"/>
+        <image name="landsacpe.jpg" width="5184" height="3456"/>
+    </resources>
+</document>
