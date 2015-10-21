@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6536B1DF1BD83E1900CBE602 /* place.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6536B1DE1BD83E1900CBE602 /* place.jpg */; settings = {ASSET_TAGS = (); }; };
 		656A4CBE1BD6CAE30031B9E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656A4CBD1BD6CAE30031B9E8 /* AppDelegate.swift */; };
 		656A4CC01BD6CAE30031B9E8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656A4CBF1BD6CAE30031B9E8 /* ViewController.swift */; };
 		656A4CC31BD6CAE30031B9E8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 656A4CC11BD6CAE30031B9E8 /* Main.storyboard */; };
@@ -17,6 +18,7 @@
 		656A4CE11BD6CAE30031B9E8 /* Trip_PlannerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656A4CE01BD6CAE30031B9E8 /* Trip_PlannerUITests.swift */; };
 		656A4CEF1BD6CC4C0031B9E8 /* landsacpe.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 656A4CEE1BD6CC4C0031B9E8 /* landsacpe.jpg */; settings = {ASSET_TAGS = (); }; };
 		656A4CF21BD6D2BE0031B9E8 /* car.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 656A4CF11BD6D2BE0031B9E8 /* car.jpg */; settings = {ASSET_TAGS = (); }; };
+		656BEF211BD823F800159796 /* plan.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 656BEF201BD823F800159796 /* plan.jpg */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6536B1DE1BD83E1900CBE602 /* place.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = place.jpg; sourceTree = "<group>"; };
 		656A4CBA1BD6CAE20031B9E8 /* Trip Planner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Trip Planner.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		656A4CBD1BD6CAE30031B9E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		656A4CBF1BD6CAE30031B9E8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -53,6 +56,7 @@
 		656A4CE21BD6CAE30031B9E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		656A4CEE1BD6CC4C0031B9E8 /* landsacpe.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = landsacpe.jpg; sourceTree = "<group>"; };
 		656A4CF11BD6D2BE0031B9E8 /* car.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = car.jpg; sourceTree = "<group>"; };
+		656BEF201BD823F800159796 /* plan.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = plan.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +112,8 @@
 				656A4CC11BD6CAE30031B9E8 /* Main.storyboard */,
 				656A4CEE1BD6CC4C0031B9E8 /* landsacpe.jpg */,
 				656A4CF11BD6D2BE0031B9E8 /* car.jpg */,
+				6536B1DE1BD83E1900CBE602 /* place.jpg */,
+				656BEF201BD823F800159796 /* plan.jpg */,
 				656A4CC71BD6CAE30031B9E8 /* Assets.xcassets */,
 				656A4CC91BD6CAE30031B9E8 /* LaunchScreen.storyboard */,
 				656A4CCC1BD6CAE30031B9E8 /* Info.plist */,
@@ -241,9 +247,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				656A4CCB1BD6CAE30031B9E8 /* LaunchScreen.storyboard in Resources */,
+				6536B1DF1BD83E1900CBE602 /* place.jpg in Resources */,
 				656A4CC81BD6CAE30031B9E8 /* Assets.xcassets in Resources */,
 				656A4CF21BD6D2BE0031B9E8 /* car.jpg in Resources */,
 				656A4CC31BD6CAE30031B9E8 /* Main.storyboard in Resources */,
+				656BEF211BD823F800159796 /* plan.jpg in Resources */,
 				656A4CEF1BD6CC4C0031B9E8 /* landsacpe.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -496,6 +504,7 @@
 				656A4CE71BD6CAE30031B9E8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		656A4CE81BD6CAE30031B9E8 /* Build configuration list for PBXNativeTarget "Trip PlannerTests" */ = {
 			isa = XCConfigurationList;
@@ -504,6 +513,7 @@
 				656A4CEA1BD6CAE30031B9E8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		656A4CEB1BD6CAE30031B9E8 /* Build configuration list for PBXNativeTarget "Trip PlannerUITests" */ = {
 			isa = XCConfigurationList;
@@ -512,6 +522,7 @@
 				656A4CED1BD6CAE30031B9E8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
