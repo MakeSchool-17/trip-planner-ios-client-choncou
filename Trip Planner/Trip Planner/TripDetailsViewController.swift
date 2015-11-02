@@ -11,11 +11,18 @@ import UIKit
 class TripDetailsViewController: UIViewController {
 
     @IBOutlet weak var navBar: UINavigationBar!
+    var passedTrip: Trip?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        navBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
-        navBar.shadowImage = UIImage()
-        navBar.translucent = true
+        if let nav = navBar{
+            nav.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
+            nav.shadowImage = UIImage()
+            nav.translucent = true
+            if let currentTrip = passedTrip{
+                nav.topItem?.title = currentTrip.name
+            }
+        }
 
         // Do any additional setup after loading the view.
     }

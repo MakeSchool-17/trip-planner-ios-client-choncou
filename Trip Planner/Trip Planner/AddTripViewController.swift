@@ -16,7 +16,7 @@ class AddTripViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var txtTripTitle: UITextField!
     @IBOutlet weak var navBar: UINavigationBar!
     
-    var context: NSManagedObjectContext?
+    var coreDataStack = CoreDataHelper(stackType: .SQLite)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,12 +43,13 @@ class AddTripViewController: UIViewController, UITextFieldDelegate {
     @IBAction func btnAddTrip(sender: UIBarButtonItem) {
         
         if let newTripTitle = txtTripTitle.text{
-            print(newTripTitle)
             
-            //TODO: Add newTripTitle to list
-            
-        txtTripTitle.text = ""
-        txtTripTitle.endEditing(true)
+            if CoreDataClient(managedObjectContext: coreDataStack.managedObjectContext).addtrip(newTripTitle){
+                txtTripTitle.text = ""
+                txtTripTitle.endEditing(true)
+            }else{
+                print("Error adding trip")
+            }
         
     }
 

@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		651903D31BE2CD2200D4C0B9 /* Waypoint+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651903CD1BE2CD2200D4C0B9 /* Waypoint+CoreDataProperties.swift */; };
 		651903D41BE2CD2200D4C0B9 /* Waypoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651903CE1BE2CD2200D4C0B9 /* Waypoint.swift */; };
-		651903D51BE2CD2200D4C0B9 /* Trip+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651903CF1BE2CD2200D4C0B9 /* Trip+CoreDataProperties.swift */; };
 		651903D61BE2CD2200D4C0B9 /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651903D01BE2CD2200D4C0B9 /* Trip.swift */; };
 		651903D71BE2CD2200D4C0B9 /* SyncInformation+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651903D11BE2CD2200D4C0B9 /* SyncInformation+CoreDataProperties.swift */; };
 		651903D81BE2CD2200D4C0B9 /* SyncInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651903D21BE2CD2200D4C0B9 /* SyncInformation.swift */; };
@@ -26,6 +25,8 @@
 		656A4CEF1BD6CC4C0031B9E8 /* landsacpe.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 656A4CEE1BD6CC4C0031B9E8 /* landsacpe.jpg */; };
 		656A4CF21BD6D2BE0031B9E8 /* car.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 656A4CF11BD6D2BE0031B9E8 /* car.jpg */; };
 		656BEF211BD823F800159796 /* plan.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 656BEF201BD823F800159796 /* plan.jpg */; };
+		65CE4D9C1BE800C7000C1CF8 /* CoreDataClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CE4D9B1BE800C7000C1CF8 /* CoreDataClient.swift */; };
+		65CE4D9E1BE8019F000C1CF8 /* Trip+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CE4D9D1BE8019F000C1CF8 /* Trip+CoreDataProperties.swift */; };
 		65D35B7D1BDEB3EB00D1C2ED /* AddTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D35B7C1BDEB3EB00D1C2ED /* AddTripViewController.swift */; };
 		65D35B811BDECCFB00D1C2ED /* GetStartedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D35B801BDECCFA00D1C2ED /* GetStartedViewController.swift */; };
 		65D35B831BDECD1E00D1C2ED /* TripDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D35B821BDECD1E00D1C2ED /* TripDetailsViewController.swift */; };
@@ -53,7 +54,6 @@
 /* Begin PBXFileReference section */
 		651903CD1BE2CD2200D4C0B9 /* Waypoint+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Waypoint+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		651903CE1BE2CD2200D4C0B9 /* Waypoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Waypoint.swift; sourceTree = "<group>"; };
-		651903CF1BE2CD2200D4C0B9 /* Trip+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Trip+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		651903D01BE2CD2200D4C0B9 /* Trip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
 		651903D11BE2CD2200D4C0B9 /* SyncInformation+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SyncInformation+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		651903D21BE2CD2200D4C0B9 /* SyncInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyncInformation.swift; sourceTree = "<group>"; };
@@ -76,6 +76,8 @@
 		656A4CEE1BD6CC4C0031B9E8 /* landsacpe.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = landsacpe.jpg; sourceTree = "<group>"; };
 		656A4CF11BD6D2BE0031B9E8 /* car.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = car.jpg; sourceTree = "<group>"; };
 		656BEF201BD823F800159796 /* plan.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = plan.jpg; sourceTree = "<group>"; };
+		65CE4D9B1BE800C7000C1CF8 /* CoreDataClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataClient.swift; sourceTree = "<group>"; };
+		65CE4D9D1BE8019F000C1CF8 /* Trip+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Trip+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		65D35B7C1BDEB3EB00D1C2ED /* AddTripViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTripViewController.swift; sourceTree = "<group>"; };
 		65D35B801BDECCFA00D1C2ED /* GetStartedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetStartedViewController.swift; sourceTree = "<group>"; };
 		65D35B821BDECD1E00D1C2ED /* TripDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripDetailsViewController.swift; sourceTree = "<group>"; };
@@ -113,9 +115,10 @@
 			children = (
 				651903CD1BE2CD2200D4C0B9 /* Waypoint+CoreDataProperties.swift */,
 				651903DA1BE2CE1300D4C0B9 /* CoreDataHelper.swift */,
+				65CE4D9B1BE800C7000C1CF8 /* CoreDataClient.swift */,
 				651903CE1BE2CD2200D4C0B9 /* Waypoint.swift */,
-				651903CF1BE2CD2200D4C0B9 /* Trip+CoreDataProperties.swift */,
 				651903D01BE2CD2200D4C0B9 /* Trip.swift */,
+				65CE4D9D1BE8019F000C1CF8 /* Trip+CoreDataProperties.swift */,
 				651903D11BE2CD2200D4C0B9 /* SyncInformation+CoreDataProperties.swift */,
 				651903D21BE2CD2200D4C0B9 /* SyncInformation.swift */,
 			);
@@ -145,9 +148,10 @@
 		656A4CBC1BD6CAE20031B9E8 /* Trip Planner */ = {
 			isa = PBXGroup;
 			children = (
-				656A4CBD1BD6CAE30031B9E8 /* AppDelegate.swift */,
-				65D35B7F1BDEB42100D1C2ED /* ViewControllers */,
 				656A4CC11BD6CAE30031B9E8 /* Main.storyboard */,
+				656A4CBD1BD6CAE30031B9E8 /* AppDelegate.swift */,
+				651903D91BE2CD2D00D4C0B9 /* CoreData */,
+				65D35B7F1BDEB42100D1C2ED /* ViewControllers */,
 				656A4CEE1BD6CC4C0031B9E8 /* landsacpe.jpg */,
 				656A4CF11BD6D2BE0031B9E8 /* car.jpg */,
 				6536B1DE1BD83E1900CBE602 /* place.jpg */,
@@ -156,7 +160,6 @@
 				656A4CC91BD6CAE30031B9E8 /* LaunchScreen.storyboard */,
 				656A4CCC1BD6CAE30031B9E8 /* Info.plist */,
 				656A4CC41BD6CAE30031B9E8 /* Trip_Planner.xcdatamodeld */,
-				651903D91BE2CD2D00D4C0B9 /* CoreData */,
 			);
 			path = "Trip Planner";
 			sourceTree = "<group>";
@@ -330,9 +333,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				651903DB1BE2CE1300D4C0B9 /* CoreDataHelper.swift in Sources */,
+				65CE4D9C1BE800C7000C1CF8 /* CoreDataClient.swift in Sources */,
+				65CE4D9E1BE8019F000C1CF8 /* Trip+CoreDataProperties.swift in Sources */,
 				651903D61BE2CD2200D4C0B9 /* Trip.swift in Sources */,
 				651903D81BE2CD2200D4C0B9 /* SyncInformation.swift in Sources */,
-				651903D51BE2CD2200D4C0B9 /* Trip+CoreDataProperties.swift in Sources */,
 				651903D71BE2CD2200D4C0B9 /* SyncInformation+CoreDataProperties.swift in Sources */,
 				656A4CC01BD6CAE30031B9E8 /* ViewController.swift in Sources */,
 				65D35B851BDECDFB00D1C2ED /* AddWayViewController.swift in Sources */,

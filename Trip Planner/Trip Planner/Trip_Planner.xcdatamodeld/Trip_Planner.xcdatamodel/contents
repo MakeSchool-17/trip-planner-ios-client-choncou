@@ -8,6 +8,7 @@
         <attribute name="lastUpdate" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="location" optional="YES" attributeType="Transformable" syncable="YES"/>
         <attribute name="locationDescription" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="parsing" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="serverID" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="waypoints" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Waypoint" inverseName="trip" inverseEntity="Waypoint" syncable="YES"/>
@@ -21,8 +22,8 @@
         <relationship name="trip" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Trip" inverseName="waypoints" inverseEntity="Trip" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Trip" positionX="-29" positionY="36" width="128" height="133"/>
-        <element name="Waypoint" positionX="286" positionY="36" width="128" height="133"/>
         <element name="SyncInformation" positionX="126" positionY="204" width="128" height="73"/>
+        <element name="Trip" positionX="-29" positionY="36" width="128" height="148"/>
+        <element name="Waypoint" positionX="286" positionY="36" width="128" height="133"/>
     </elements>
 </model>

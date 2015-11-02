@@ -43,7 +43,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="center" tableViewCell="Pdl-a2-Sm3" id="gb3-ne-gqa">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <animations/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -212,7 +212,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eTa-65-hQb" id="l9t-SI-1Kc">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <animations/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -523,14 +523,14 @@
                                 <rect key="frame" x="0.0" y="25" width="266" height="48"/>
                                 <animations/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="48" id="nWc-Ld-oOS"/>
+                                    <constraint firstAttribute="height" constant="48" id="ELc-9h-gm4"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="16"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vTN-w5-KiA">
-                                <rect key="frame" x="75.5" y="81" width="116" height="31"/>
+                                <rect key="frame" x="75" y="81" width="116" height="31"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" name="CourierNewPS-BoldItalicMT" family="Courier New" pointSize="16"/>
                                 <state key="normal" title="Get Started!"/>
@@ -542,11 +542,11 @@
                         <animations/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="vTN-w5-KiA" firstAttribute="top" secondItem="X7e-wh-ki8" secondAttribute="bottom" constant="8" symbolic="YES" id="3jr-8S-oFR"/>
-                            <constraint firstItem="vTN-w5-KiA" firstAttribute="centerX" secondItem="Fbq-mm-w3R" secondAttribute="centerX" id="5N5-19-P9u"/>
-                            <constraint firstItem="X7e-wh-ki8" firstAttribute="leading" secondItem="Fbq-mm-w3R" secondAttribute="leading" id="8HR-5D-bhG"/>
-                            <constraint firstItem="X7e-wh-ki8" firstAttribute="centerX" secondItem="vTN-w5-KiA" secondAttribute="centerX" id="nVj-xX-Dd9"/>
-                            <constraint firstItem="X7e-wh-ki8" firstAttribute="top" secondItem="1xF-mN-CCL" secondAttribute="bottom" constant="25" id="shQ-g1-N3U"/>
+                            <constraint firstItem="X7e-wh-ki8" firstAttribute="leading" secondItem="Fbq-mm-w3R" secondAttribute="leading" id="1P9-PB-wnI"/>
+                            <constraint firstItem="X7e-wh-ki8" firstAttribute="top" secondItem="1xF-mN-CCL" secondAttribute="bottom" constant="25" id="4HD-5B-iQN"/>
+                            <constraint firstItem="vTN-w5-KiA" firstAttribute="centerX" secondItem="Fbq-mm-w3R" secondAttribute="centerX" id="7le-Iu-nrg"/>
+                            <constraint firstItem="vTN-w5-KiA" firstAttribute="top" secondItem="X7e-wh-ki8" secondAttribute="bottom" constant="8" symbolic="YES" id="GJa-8V-Kbo"/>
+                            <constraint firstAttribute="trailing" secondItem="X7e-wh-ki8" secondAttribute="trailing" id="Qdp-gN-7I2"/>
                         </constraints>
                     </view>
                 </viewController>

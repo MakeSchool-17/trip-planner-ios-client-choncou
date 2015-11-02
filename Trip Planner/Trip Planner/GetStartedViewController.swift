@@ -11,6 +11,7 @@ import UIKit
 class GetStartedViewController: UIViewController {
 
     @IBOutlet weak var navBar: UINavigationBar!
+    var passedTrip: Trip?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,8 +19,11 @@ class GetStartedViewController: UIViewController {
             nav.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
             nav.shadowImage = UIImage()
             nav.translucent = true
+            if let currentTrip = passedTrip{
+                nav.topItem?.title = currentTrip.name
+                print(currentTrip)
+            }
         }
-
         // Do any additional setup after loading the view.
     }
 
@@ -33,12 +37,12 @@ class GetStartedViewController: UIViewController {
     @IBAction func unwindToTripDetails(segue: UIStoryboardSegue) {
     
     }
-    /*
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
+    //In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
-    */
+
 
 }

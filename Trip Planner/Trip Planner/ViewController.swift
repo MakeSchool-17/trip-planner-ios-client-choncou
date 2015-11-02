@@ -15,7 +15,10 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var navBar: UINavigationBar!
     
-    var titles: [String] = ["Test 1", "Test 2", "Test 3"]
+    var selectedTrip: Trip?
+    
+    var trips: [Trip] = []
+    var coreDataStack = CoreDataHelper(stackType: .SQLite)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,8 +39,7 @@ class ViewController: UIViewController {
     
     
     override func viewWillAppear(animated: Bool) {
-        
-        //TODO: Refresh title[]
+        trips = CoreDataClient(managedObjectContext: coreDataStack.managedObjectContext).allTrips()
         
         tableView.reloadData()
     }
@@ -46,6 +48,17 @@ class ViewController: UIViewController {
     @IBAction func unwindToHome(segue: UIStoryboardSegue) {
         
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "ViewWaySeg" {
+            let nextViewController = segue.destinationViewController as! TripDetailsViewController
+            nextViewController.passedTrip = selectedTrip!
+        }
+        if segue.identifier == "GetStartedSeg" {
+            let nextViewController = segue.destinationViewController as! GetStartedViewController
+            nextViewController.passedTrip = selectedTrip!
+        }
+    }
 
 }
 
@@ -53,7 +66,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         
-        return (titles.count)
+        return (trips.count)
         
     }
     
@@ -62,17 +75,21 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "cell")
         cell.backgroundColor = UIColor.clearColor()
         
-        cell.textLabel?.text = titles[indexPath.row]
+        cell.textLabel?.text = trips[indexPath.row].name
         
         return cell
         
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
-        
-        //TODO: Open Screen
+        selectedTrip = trips[indexPath.row]
+        if trips[indexPath.row].waypoints?.count > 0{
+            self.performSegueWithIdentifier("ViewWaySeg", sender: tableView)
+        }else {
+            self.performSegueWithIdentifier("GetStartedSeg", sender: tableView)
+
+        }
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        
     }
     
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
@@ -82,7 +99,11 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if (editingStyle == UITableViewCellEditingStyle.Delete) {
             
-            //TODO: Delete stuff
+            if CoreDataClient(managedObjectContext: coreDataStack.managedObjectContext).deleteTrip(trips[indexPath.row].name!){
+                trips = CoreDataClient(managedObjectContext: coreDataStack.managedObjectContext).allTrips()
+                tableView.reloadData()
+
+            }
             
         }
     }
