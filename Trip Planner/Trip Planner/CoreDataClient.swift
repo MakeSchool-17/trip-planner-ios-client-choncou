@@ -24,19 +24,19 @@ class CoreDataClient {
         return trips
     }
     
-    func getTrip(name: String) -> Trip {
+    func getTrip(name: String) -> NSManagedObject {
         let request = NSFetchRequest(entityName: "Trip")
         request.predicate = NSPredicate(format: "name = %@", name)
         request.returnsObjectsAsFaults = false
         
-        let trips = try! managedObjectContext.executeFetchRequest(request) as! [Trip]
+        let trips = try! managedObjectContext.executeFetchRequest(request)
         
-        return trips[0]
+        return trips[0] as! NSManagedObject
     }
     
     func addtrip(name: String) -> Bool {
-        let newTrip = NSEntityDescription.insertNewObjectForEntityForName("Trip", inManagedObjectContext: managedObjectContext)
-        newTrip.setValue(name, forKey: "name")
+        let newTrip = Trip(context: managedObjectContext)
+        newTrip.name = name
         
         do{
             try managedObjectContext.save()
@@ -56,6 +56,22 @@ class CoreDataClient {
         let trip = try! managedObjectContext.executeFetchRequest(request) as! [Trip]
         
         managedObjectContext.deleteObject(trip[0])
+        
+        do{
+            try managedObjectContext.save()
+            return true
+            
+        }catch{
+            return false
+        }
+    }
+    
+    func addWaypoint(waypoint: Waypoint, trip: String) -> Bool{
+        let newWayPoint = Waypoint(context: managedObjectContext)
+        newWayPoint.longitude = waypoint.longitude
+        newWayPoint.latitude = waypoint.latitude
+        newWayPoint.name = waypoint.name
+        newWayPoint.trip = self.getTrip(trip)
         
         do{
             try managedObjectContext.save()
