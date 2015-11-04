@@ -11,6 +11,8 @@ import UIKit
 class TripDetailsViewController: UIViewController {
 
     @IBOutlet weak var navBar: UINavigationBar!
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var labelDestination: UILabel!
     var passedTrip: Trip?
     
     override func viewDidLoad() {
@@ -21,10 +23,15 @@ class TripDetailsViewController: UIViewController {
             nav.translucent = true
             if let currentTrip = passedTrip{
                 nav.topItem?.title = currentTrip.name
+                //TODO: set labelDestination
             }
         }
 
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
     }
 
     override func didReceiveMemoryWarning() {
@@ -32,19 +39,23 @@ class TripDetailsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func buttonAddWaypoints(sender: UIButton) {
+        performSegueWithIdentifier("TripDetailsToAddWay", sender: sender)
+    }
 
     
     // MARK: - Navigation
     @IBAction func unwindToTripDetails(segue: UIStoryboardSegue) {
         
     }
-    /*
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.destinationViewController.title == "Add Waypoints"{
+            let nextSeg = segue.destinationViewController as! AddWayViewController
+            nextSeg.currrentTrip = passedTrip
+        }
     }
-    */
 
 }
 

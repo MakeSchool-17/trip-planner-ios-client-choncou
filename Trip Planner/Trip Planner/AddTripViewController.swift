@@ -11,8 +11,6 @@ import CoreData
 
 class AddTripViewController: UIViewController, UITextFieldDelegate {
     
-    var appDel: AppDelegate?
-    
     @IBOutlet weak var txtTripTitle: UITextField!
     @IBOutlet weak var navBar: UINavigationBar!
     

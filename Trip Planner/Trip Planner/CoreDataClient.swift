@@ -67,11 +67,12 @@ class CoreDataClient {
     }
     
     func addWaypoint(waypoint: Waypoint, trip: String) -> Bool{
-        let newWayPoint = Waypoint(context: managedObjectContext)
-        newWayPoint.longitude = waypoint.longitude
-        newWayPoint.latitude = waypoint.latitude
-        newWayPoint.name = waypoint.name
-        newWayPoint.trip = self.getTrip(trip)
+//        let newWayPoint = Waypoint(context: managedObjectContext)
+//        newWayPoint.longitude = waypoint.longitude
+//        newWayPoint.latitude = waypoint.latitude
+//        newWayPoint.name = waypoint.name
+//        newWayPoint.trip
+        waypoint.trip = self.getTrip(trip)
         
         do{
             try managedObjectContext.save()
