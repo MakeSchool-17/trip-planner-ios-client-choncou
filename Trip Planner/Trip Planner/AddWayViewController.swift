@@ -12,13 +12,16 @@ import GoogleMaps
 
 class AddWayViewController: UIViewController {
 
-    var placePicker: GMSPlacePicker?
     var coreDataStack = CoreDataHelper(stackType: .SQLite)
     var pickedPlace: GMSPlace?
+    var placesClient: GMSPlacesClient?
     var currrentTrip: Trip?
+    var predications: [NSAttributedString]?
+    let regularFont = UIFont.systemFontOfSize(UIFont.labelFontSize())
+    let boldFont = UIFont.boldSystemFontOfSize(UIFont.labelFontSize())
     
     
-    @IBOutlet weak var labelPlaceName: UILabel!
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var mapView: MKMapView!
     var mapLatitude:CLLocationDegrees?
     var mapLongitude:CLLocationDegrees?
@@ -30,7 +33,7 @@ class AddWayViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpMap()
+        placesClient = GMSPlacesClient()
         // Do any additional setup after loading the view.
         print(currrentTrip)
     }
@@ -66,35 +69,9 @@ class AddWayViewController: UIViewController {
     */
 
 }
-
+//MARK: MapViewDelegate
 extension AddWayViewController: MKMapViewDelegate {
     
-    func setUpMap() {
-        /*
-        //Attribution: https://developers.google.com/places/ios-api/placepicker
-        */
-        let center = CLLocationCoordinate2DMake(51.5108396, -0.0922251)
-        let northEast = CLLocationCoordinate2DMake(center.latitude + 0.05, center.longitude + 0.05)
-        let southWest = CLLocationCoordinate2DMake(center.latitude - 0.05, center.longitude - 0.05)
-        let viewport = GMSCoordinateBounds(coordinate: northEast, coordinate: southWest)
-        let config = GMSPlacePickerConfig(viewport: viewport)
-        placePicker = GMSPlacePicker(config: config)
-        
-        placePicker?.pickPlaceWithCallback({ (place: GMSPlace?, error: NSError?) -> Void in
-            if let error = error {
-                print("Pick Place error: \(error.localizedDescription)")
-                return
-            }
-            
-            if let place = place {
-                self.resetMap(place.coordinate, name: place.name)
-                self.pickedPlace = place
-            } else {
-                print("No place selected")
-                self.dismissViewControllerAnimated(true, completion: nil)
-            }
-        })
-    }
     func resetMap(coordinate: CLLocationCoordinate2D, name: String){
         mapLatitude = coordinate.latitude
         mapLongitude = coordinate.longitude
@@ -104,7 +81,6 @@ extension AddWayViewController: MKMapViewDelegate {
         mapLocation = CLLocationCoordinate2DMake(mapLatitude!, mapLongitude!)
         mapRegion = MKCoordinateRegionMake(mapLocation!, mapSpan!)
         mapView.setRegion(mapRegion!, animated: true)
-        labelPlaceName.text = name
         
         let annotation = MKPointAnnotation()
         annotation.coordinate = coordinate
@@ -113,4 +89,77 @@ extension AddWayViewController: MKMapViewDelegate {
         
     }
     
+}
+
+//MARK: TableView
+extension AddWayViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
+        if let predications = predications{
+            return predications.count
+        }else{
+            return 0
+        }
+        
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
+        
+        let cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "placeCell")
+        cell.backgroundColor = UIColor.clearColor()
+        
+        cell.textLabel?.attributedText = predications![indexPath.row]
+        
+        return cell
+        
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
+        //TODO: Update selected place
+    }
+}
+
+//MARK: SearchBar
+extension AddWayViewController: UISearchBarDelegate {
+    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
+        
+    }
+    
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        if NSString(string: searchText).length > 0 {
+            placeAutocomplete(searchBar.text!)
+        }else{
+            self.predications = []
+            self.tableView.reloadData()
+        }
+    }
+    
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+    }
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+    }
+    
+    func placeAutocomplete(searchText: String) {
+        let filter = GMSAutocompleteFilter()
+        filter.type = GMSPlacesAutocompleteTypeFilter.Region
+        placesClient?.autocompleteQuery(searchText, bounds: nil, filter: filter, callback: { (results, error: NSError?) -> Void in
+            if let error = error {
+                print("Autocomplete error \(error)")
+            }
+            self.predications = []
+            for result in results! {
+                if let result = result as? GMSAutocompletePrediction {
+                    let bolded = result.attributedFullText.mutableCopy() as! NSMutableAttributedString
+                    bolded.enumerateAttribute(kGMSAutocompleteMatchAttribute, inRange: NSMakeRange(0, bolded.length), options: []) { (value, range: NSRange, stop: UnsafeMutablePointer<ObjCBool>) -> Void in
+                        let font = (value == nil) ? self.regularFont : self.boldFont
+                        bolded.addAttribute(NSFontAttributeName, value: font, range: range)
+                    }
+                    
+                    self.predications?.append(bolded)
+                }
+            }
+            self.tableView.reloadData()
+        })
+    }
 }
