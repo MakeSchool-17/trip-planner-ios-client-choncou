@@ -14,6 +14,8 @@ class TripDetailsViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var labelDestination: UILabel!
     var passedTrip: Trip?
+    var wayPoints: [Waypoint]?
+    var coreDataStack = CoreDataHelper(stackType: .SQLite)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,16 +25,16 @@ class TripDetailsViewController: UIViewController {
             nav.translucent = true
             if let currentTrip = passedTrip{
                 nav.topItem?.title = currentTrip.name
-                //TODO: set labelDestination
+                wayPoints = CoreDataClient(managedObjectContext: coreDataStack.managedObjectContext).returnWays(currentTrip)
             }
         }
 
-        // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         if let tableView = tableView {
+           wayPoints = CoreDataClient(managedObjectContext: coreDataStack.managedObjectContext).returnWays(passedTrip!)
             tableView.reloadData()
         }
     }
@@ -66,8 +68,8 @@ extension TripDetailsViewController: UITableViewDelegate, UITableViewDataSource 
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         
-        if let currentTrip = passedTrip{
-            return (currentTrip.waypoints?.count)!
+        if let wayPoints = wayPoints{
+            return (wayPoints.count)
         }else {
             return 0
         }
@@ -79,7 +81,7 @@ extension TripDetailsViewController: UITableViewDelegate, UITableViewDataSource 
         let cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "cell")
         cell.backgroundColor = UIColor.clearColor()
         
-        cell.textLabel?.text = "TODO: Put real waypoints"
+        cell.textLabel?.text = wayPoints![indexPath.row].name
         
         return cell
         
@@ -97,7 +99,10 @@ extension TripDetailsViewController: UITableViewDelegate, UITableViewDataSource 
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if (editingStyle == UITableViewCellEditingStyle.Delete) {
             
-            //TODO: Delete waypoint
+            if CoreDataClient(managedObjectContext: coreDataStack.managedObjectContext).deleteWaypoint(wayPoints![indexPath.row]) {
+                wayPoints = CoreDataClient(managedObjectContext: coreDataStack.managedObjectContext).returnWays(passedTrip!)
+                tableView.reloadData()
+            }
             
         }
     }

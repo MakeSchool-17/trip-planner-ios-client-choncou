@@ -37,7 +37,6 @@ class AddWayViewController: UIViewController {
         searchBar.delegate = self
         placesClient = GMSPlacesClient()
         // Do any additional setup after loading the view.
-        print(currentTrip)
     }
 
     override func didReceiveMemoryWarning() {
@@ -46,12 +45,12 @@ class AddWayViewController: UIViewController {
     }
     @IBAction func buttonSave(sender: UIBarButtonItem) {
         let way = Waypoint(context: coreDataStack.managedObjectContext)
-        way.name = pickedPlace?.name
+        way.name = pickedPlace?.formattedAddress
         way.latitude = String(pickedPlace?.coordinate.latitude)
         way.longitude = String(pickedPlace?.coordinate.longitude)
         
-        if let currrentTrip = currentTrip {
-            if CoreDataClient(managedObjectContext: coreDataStack.managedObjectContext).addWaypoint(way, trip: (currrentTrip.name!)) {
+        if let currentTrip = currentTrip {
+            if CoreDataClient(managedObjectContext: coreDataStack.managedObjectContext).addWaypoint(way, trip: currentTrip) {
                 print("Added")
                 dismissViewControllerAnimated(true, completion: nil)
             }else {
@@ -69,10 +68,10 @@ class AddWayViewController: UIViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.destinationViewController.title == "View Waypoints" {
-            let nextViewController = segue.destinationViewController as! TripDetailsViewController
-            nextViewController.passedTrip = self.currentTrip!
-        }
+//        if segue.destinationViewController.title! == "View Waypoints" {
+//            let nextViewController = segue.destinationViewController as! TripDetailsViewController
+//            nextViewController.passedTrip = self.currentTrip!
+//        }
     }
     
 

@@ -12,6 +12,7 @@ class GetStartedViewController: UIViewController {
 
     @IBOutlet weak var navBar: UINavigationBar!
     var passedTrip: Trip?
+    var coreDataStack = CoreDataHelper(stackType: .SQLite)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,10 +29,7 @@ class GetStartedViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         if let currentTrip = passedTrip{
-            //TODO: Exit the VC
-            if currentTrip.waypoints?.count > 0{
-                dismissViewControllerAnimated(false, completion: nil)
-            }
+            passedTrip = CoreDataClient(managedObjectContext: coreDataStack.managedObjectContext).getTrip(currentTrip)
         }
     }
 

@@ -83,7 +83,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
         selectedTrip = trips[indexPath.row]
-        if trips[indexPath.row].waypoints?.count > 0{
+        if CoreDataClient(managedObjectContext: coreDataStack.managedObjectContext).returnWays(selectedTrip!).count > 0{
             self.performSegueWithIdentifier("ViewWaySeg", sender: tableView)
         }else {
             self.performSegueWithIdentifier("GetStartedSeg", sender: tableView)
@@ -99,10 +99,9 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if (editingStyle == UITableViewCellEditingStyle.Delete) {
             
-            if CoreDataClient(managedObjectContext: coreDataStack.managedObjectContext).deleteTrip(trips[indexPath.row].name!){
+            if CoreDataClient(managedObjectContext: coreDataStack.managedObjectContext).deleteTrip(trips[indexPath.row]){
                 trips = CoreDataClient(managedObjectContext: coreDataStack.managedObjectContext).allTrips()
                 tableView.reloadData()
-
             }
             
         }

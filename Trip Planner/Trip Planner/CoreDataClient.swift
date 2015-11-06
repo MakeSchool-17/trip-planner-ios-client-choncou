@@ -24,14 +24,10 @@ class CoreDataClient {
         return trips
     }
     
-    func getTrip(name: String) -> NSManagedObject {
-        let request = NSFetchRequest(entityName: "Trip")
-        request.predicate = NSPredicate(format: "name = %@", name)
-        request.returnsObjectsAsFaults = false
+    func getTrip(trip: Trip) -> Trip {
+        let trips = managedObjectContext.objectWithID(trip.objectID)
         
-        let trips = try! managedObjectContext.executeFetchRequest(request)
-        
-        return trips[0] as! NSManagedObject
+        return trips as! Trip
     }
     
     func addtrip(name: String) -> Bool {
@@ -48,14 +44,11 @@ class CoreDataClient {
         
     }
     
-    func deleteTrip(name:String) -> Bool {
-        let request = NSFetchRequest(entityName: "Trip")
-        request.predicate = NSPredicate(format: "name = %@", name)
-        request.returnsObjectsAsFaults = false
+    func deleteTrip(trip: Trip) -> Bool {
+
+        let trip = managedObjectContext.objectWithID(trip.objectID)
         
-        let trip = try! managedObjectContext.executeFetchRequest(request) as! [Trip]
-        
-        managedObjectContext.deleteObject(trip[0])
+        managedObjectContext.deleteObject(trip)
         
         do{
             try managedObjectContext.save()
@@ -66,12 +59,7 @@ class CoreDataClient {
         }
     }
     
-    func addWaypoint(waypoint: Waypoint, trip: String) -> Bool{
-//        let newWayPoint = Waypoint(context: managedObjectContext)
-//        newWayPoint.longitude = waypoint.longitude
-//        newWayPoint.latitude = waypoint.latitude
-//        newWayPoint.name = waypoint.name
-//        newWayPoint.trip
+    func addWaypoint(waypoint: Waypoint, trip: Trip) -> Bool{
         waypoint.trip = self.getTrip(trip)
         
         do{
@@ -81,6 +69,31 @@ class CoreDataClient {
         }catch{
             return false
         }
+    }
+    
+    func deleteWaypoint(way: Waypoint) -> Bool {
+        
+        let trip = managedObjectContext.objectWithID(way.objectID)
+        
+        managedObjectContext.deleteObject(trip)
+        
+        do{
+            try managedObjectContext.save()
+            return true
+            
+        }catch{
+            return false
+        }
+    }
+    
+    func returnWays(trip: Trip) -> [Waypoint]{
+        let fetchRequest = NSFetchRequest(entityName: "Waypoint")
+        fetchRequest.predicate =  NSPredicate(format: "trip = %@", trip)
+        fetchRequest.returnsObjectsAsFaults = false
+        
+        let ways = try! managedObjectContext.executeFetchRequest(fetchRequest) as! [Waypoint]
+        
+        return ways
     }
     
 }
