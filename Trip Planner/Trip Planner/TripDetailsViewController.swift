@@ -32,6 +32,9 @@ class TripDetailsViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        if let tableView = tableView {
+            tableView.reloadData()
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -53,7 +56,7 @@ class TripDetailsViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.destinationViewController.title == "Add Waypoints"{
             let nextSeg = segue.destinationViewController as! AddWayViewController
-            nextSeg.currrentTrip = passedTrip
+            nextSeg.currentTrip = passedTrip
         }
     }
 

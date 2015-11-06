@@ -29,9 +29,7 @@
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Show your location on the map</string>
 	<key>UIRequiredDeviceCapabilities</key>
-	<array>
-		<string></string>
-	</array>
+	<array/>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

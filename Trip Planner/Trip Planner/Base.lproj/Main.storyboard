@@ -184,7 +184,7 @@
         <!--View Waypoints-->
         <scene sceneID="U2Y-Z0-X1S">
             <objects>
-                <viewController title="View Waypoints" id="m5d-mE-JDJ" customClass="TripDetailsViewController" customModule="Trip_Planner" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TripDetailsViewController" title="View Waypoints" id="m5d-mE-JDJ" customClass="TripDetailsViewController" customModule="Trip_Planner" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="76d-Mz-3P7"/>
                         <viewControllerLayoutGuide type="bottom" id="Abg-0s-AP8"/>
@@ -420,7 +420,7 @@
                                         <rect key="frame" x="0.0" y="28" width="383" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7xy-j8-My6" id="cvM-oj-Cdz">
-                                            <rect key="frame" x="0.0" y="0.0" width="383" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="383" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <animations/>
                                         </tableViewCellContentView>
@@ -454,6 +454,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="mapView" destination="sS4-Ll-xgQ" id="Q0k-20-ewp"/>
+                        <outlet property="searchBar" destination="l23-i3-5Mf" id="jNB-7p-3mF"/>
                         <outlet property="tableView" destination="hd2-44-uPZ" id="xJ9-1e-nRm"/>
                     </connections>
                 </viewController>
@@ -645,6 +646,6 @@
         <image name="plan.jpg" width="4000" height="2667"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="RUb-aw-2iV"/>
+        <segue reference="a6b-q2-SZ8"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -21,10 +21,18 @@ class GetStartedViewController: UIViewController {
             nav.translucent = true
             if let currentTrip = passedTrip{
                 nav.topItem?.title = currentTrip.name
-                print(passedTrip)
             }
         }
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        if let currentTrip = passedTrip{
+            //TODO: Exit the VC
+            if currentTrip.waypoints?.count > 0{
+                dismissViewControllerAnimated(false, completion: nil)
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -42,7 +50,7 @@ class GetStartedViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "GetStartedToAdd" {
             if let vc = segue.destinationViewController as? AddWayViewController {
-                vc.currrentTrip = passedTrip
+                vc.currentTrip = passedTrip
             }
         }
     }
